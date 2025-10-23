@@ -1,0 +1,94 @@
+socks-port: 7890
+external-controller: 127.0.0.1:9090
+external-ui: C:\Clash\yacd-gh-pages
+profile:
+  store-selected: true
+  store-fake-ip: true
+proxies:
+  - name: "ZOOM-SG"
+    type: trojan
+    server: 167.71.219.184
+    port: 443
+    password: 5be7e6f1-d0fb-49a7-9c60-acd3214aaae6
+    udp: true
+    sni: zoom.com
+    skip-cert-verify: true
+  - name: "AWS-Zoom"
+    type: vmess
+    server: 18.138.39.162
+    port: 445
+    uuid: 576ab390-d075-4e19-b895-0af80639acaa
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    skip-cert-verify: true
+    servername: m.zoom.us
+    network: ws
+    ws-opts:
+     path: /
+     headers:
+      Host: m.zoom.us
+    max-early-data: 2048
+    early-data-header-name: Sec-WebSocket-Protocol
+  - name: "Dialog-Zoom"
+    type: vmess
+    server: 34.142.221.175
+    port: 443
+    uuid: 90c103df-2af1-4a7b-9a59-ff4c8d0284f0
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    skip-cert-verify: true
+    servername: aka.ms
+    network: ws
+    ws-opts:
+     path: /
+     headers:
+      Host: aka.ms
+    max-early-data: 2048
+    early-data-header-name: Sec-WebSocket-Protocol
+  - name: "Oracle-Zoom"
+    type: vmess
+    server: 146.56.50.172
+    port: 445
+    uuid: 204a2b3c-c08b-4ffd-9c6c-346f2d1b6cdb
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    skip-cert-verify: true
+    servername: m.zoom.us
+    network: ws
+    ws-opts:
+     path: /
+     headers:
+      Host: m.zoom.us
+    max-early-data: 2048
+    early-data-header-name: Sec-WebSocket-Protocol
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 192.168.1.1
+listeners:   
+  - name: http-in-1
+    type: http
+    port: 10809
+    listen: 0.0.0.0
+tun:
+  enable: true
+  stack: gvisor
+  dns-hijack:
+    - 198.18.0.2:53
+  auto-detect-interface: true
+  auto-route: true
+mode: global
+log-level: silent
+allow-lan: false
+bind-address: "*"
+ipv6: false
