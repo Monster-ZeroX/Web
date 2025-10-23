@@ -10,7 +10,7 @@ set -e
 
 # ⚠️ 1. EDIT THIS URL
 #    Go to your config.yaml in GitHub, click "Raw", and copy/paste the URL here.
-CONFIG_URL="https"
+CONFIG_URL="https://raw.githubusercontent.com/Monster-ZeroX/Web/refs/heads/main/config.yaml"
 
 # ⚠️ 2. (Optional) EDIT THIS URL
 #    To update Clash, find the latest release URL from:
